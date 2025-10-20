@@ -1,11 +1,12 @@
 import React from 'react'
-import { navLinks } from '../constants';
+import { navLinks } from '../../constants';
 
 const Navbar = () => {
 	return (
 		<div>
-			<nav className='flex items-center justify-between'>
-				<a href="#home" className="flex items-center gap-2">
+			<nav>
+				<a href="#home" className="flex justify-center gap-2">
+          <img src="/images/logo.png" alt="logo"/>
 					<p>Velvet Pour</p>
 				</a>
 
