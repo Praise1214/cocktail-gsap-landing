@@ -1,0 +1,74 @@
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import {SplitText} from "gsap/all";
+import React from 'react'
+
+gsap.registerPlugin(SplitText);
+
+const Hero = () => {
+
+  useGSAP(() => {
+    const heroSplit = new SplitText(".title", {
+      type:"chars, words",
+    });
+
+    const paragraphSplit = new SplitText(".subtitle", {
+      type: "lines"
+    })
+
+    heroSplit.chars.forEach((char) => char.classList.add("text-gradient"));
+
+    gsap.from(heroSplit.chars, {
+      yPercent:100,
+      duration: 1.8,
+      ease: 'expo-out',
+      stagger: 0.05,
+    })
+
+    gsap.from(paragraphSplit.lines, {
+      opacity:0,
+      yPercent: 100,
+      duration: 1.8,
+      ease: 'expo-out',
+      stagger: 0.06,
+      delay: 1,
+    })
+  }, [])
+  return (
+    <>
+      <section id="hero" className="noisy">
+        <h1 className="title">MOJITO</h1>
+
+        <img 
+        src="/images/hero-left-leaf.png"
+        alt="left-leaf"
+        className="left-leaf"
+        />
+
+       <img 
+        src="/images/hero-right-leaf.png"
+        alt="right-leaf"
+        className="right-leaf"
+       />
+
+       <div className="body">
+        <div className="content">
+          <div className="space-y-5 hidden md:block">
+            <p>Cool. Crispy. Classic</p>
+            <p className="subtitle">Sip the Spirit <br /> of Summer</p>
+          </div>
+
+          <div className="view-cocktails">
+            <p className="subtitle">
+              Each cocktail on our menu combines premium ingredients, artistic flair, and timeless recipes crafted to awaken your senses and elevate every sip.
+            </p>
+          </div>
+       </div>
+      </div>
+
+      </section>
+    </>
+  )
+}
+
+export default Hero
