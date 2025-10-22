@@ -15,7 +15,7 @@ const Hero = () => {
 
   useGSAP(() => {
     const heroSplit = new SplitText(".title", {
-      type:"chars, words",
+      type: "chars, words",
     });
 
     const paragraphSplit = new SplitText(".subtitle", {
@@ -100,9 +100,8 @@ const Hero = () => {
               Each cocktail on our menu combines premium ingredients, artistic flair, and timeless recipes crafted to awaken your senses and elevate every sip.
             </p>
           </div>
+        </div>
        </div>
-      </div>
-
       </section>
 
       <div className="video absolute inset-0">
