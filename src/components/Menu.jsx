@@ -1,4 +1,5 @@
 import React from 'react';
+'use client';
 import { allCocktails } from "../../constants/index.js";
 import { useState, useRef } from "react";
 import { useGSAP } from "@gsap/react";
