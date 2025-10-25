@@ -11,6 +11,34 @@ const Menu = () => {
   const contentRef = useRef();
 
   useGSAP(() => {
+
+    const parallaxTimeline = gsap.timeline({
+      scrollTrigger : {
+        trigger: '#menu',
+        start: 'top 30%',
+        end: 'bottom 80%',
+        scrub: true,
+      }
+    })
+
+    parallaxTimeline
+      .from('#m-left-leaf', {
+        x: -250,
+        y: 150,
+        rotation: -15,
+        opacity: 0.5,
+        scale: 1,
+        ease: 'power2.out'
+      }, 0) // Start at the same time
+      .from('#m-right-leaf', {
+        x: 150,
+        y: 150,
+        rotation: 15,
+        opacity: 0.3,
+        scale: 1,
+        ease: 'power2.out'
+      }, 0); // Start at the same time
+
     gsap.fromTo('#title', { opacity: 0 }, { opacity: 1, duration: 1 });
     gsap.fromTo('.cocktail img', { opacity: 0, xPercent: -100 }, {
     xPercent: 0, opacity: 1, duration: 1, ease: 'power1.inOut'
